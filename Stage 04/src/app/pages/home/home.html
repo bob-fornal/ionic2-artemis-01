@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Artemis Scheduler App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  Please select a timeframe.
+  <ion-list *ngFor="let block of schedule">
+    <ion-item-group>
+
+      <ion-item-divider class="u-date-header">{{ block.date }}</ion-item-divider>
+      <ion-item *ngFor="let time of block.times">
+
+        <p>{{ time.start }} - {{ time.end }}</p>
+        <p class="u-bridge"
+           [class.free]="bridge.crew.status === 'free'"
+           (click)="clickCrew(time.key, bridge.key)"
+           *ngFor="let bridge of time.bridges">
+          {{ bridge.title }}: Status [{{ bridge.crew.status }}]
+        </p>
+
+      </ion-item>
+
+    </ion-item-group>
+  </ion-list>
+</ion-content>

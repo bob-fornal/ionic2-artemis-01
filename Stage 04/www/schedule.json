@@ -1,0 +1,150 @@
+{
+  "schedule": [
+    {
+      "date": "2016-10-01",
+      "times": [
+        {
+          "key": 0,
+          "start": "0900",
+          "end": "0955",
+          "bridges": [
+            {
+              "key": 0,
+              "title": "Alpha Bridge",
+              "crew": { "status": "free" }
+            },
+            {
+              "key": 1,
+              "title": "Beta Bridge",
+              "crew": { "status": "free" }
+            }
+          ]
+        },
+        {
+          "key": 1,
+          "start": "1000",
+          "end": "1055",
+          "bridges": [
+            {
+              "key": 0,
+              "title": "Alpha Bridge",
+              "crew": { "status": "free" }
+            },
+            {
+              "key": 1,
+              "title": "Beta Bridge",
+              "crew": { "status": "free" }
+            }
+          ]
+        },
+        {
+          "key": 2,
+          "start": "1100",
+          "end": "1155",
+          "bridges": [
+            {
+              "key": 0,
+              "title": "Alpha Bridge",
+              "crew": { "status": "free" }
+            },
+            {
+              "key": 1,
+              "title": "Beta Bridge",
+              "crew": { "status": "free" }
+            }
+          ]
+        },
+        {
+          "key": 3,
+          "start": "1800",
+          "end": "1955",
+          "bridges": [
+            {
+              "key": 0,
+              "title": "Alpha Bridge",
+              "crew": { "status": "free" }
+            },
+            {
+              "key": 1,
+              "title": "Beta Bridge",
+              "crew": { "status": "free" }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2016-10-02",
+      "times": [
+        {
+          "key": 4,
+          "start": "0900",
+          "end": "0955",
+          "bridges": [
+            {
+              "key": 0,
+              "title": "Alpha Bridge",
+              "crew": { "status": "free" }
+            },
+            {
+              "key": 1,
+              "title": "Beta Bridge",
+              "crew": { "status": "free" }
+            }
+          ]
+        },
+        {
+          "key": 5,
+          "start": "1000",
+          "end": "1055",
+          "bridges": [
+            {
+              "key": 0,
+              "title": "Alpha Bridge",
+              "crew": { "status": "free" }
+            },
+            {
+              "key": 1,
+              "title": "Beta Bridge",
+              "crew": { "status": "free" }
+            }
+          ]
+        },
+        {
+          "key": 6,
+          "start": "1100",
+          "end": "1155",
+          "bridges": [
+            {
+              "key": 0,
+              "title": "Alpha Bridge",
+              "crew": { "status": "free" }
+            },
+            {
+              "key": 1,
+              "title": "Beta Bridge",
+              "crew": { "status": "free" }
+            }
+          ]
+        },
+        {
+          "key": 7,
+          "start": "1800",
+          "end": "1955",
+          "bridges": [
+            {
+              "key": 0,
+              "title": "Alpha Bridge",
+              "crew": { "status": "free" }
+            },
+            {
+              "key": 1,
+              "title": "Beta Bridge",
+              "crew": { "status": "free" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
