@@ -1,0 +1,110 @@
+{
+  "schedule": [
+    {
+      "date": "2016-10-01",
+      "times": [
+        {
+          "key": 0,
+          "start": "0900",
+          "end": "0955",
+          "title": "Alpha Bridge"
+        },
+        {
+          "key": 1,
+          "start": "0900",
+          "end": "0955",
+          "title": "Beta Bridge"
+        },
+        {
+          "key": 2,
+          "start": "1000",
+          "end": "1055",
+          "title": "Alpha Bridge"
+        },
+        {
+          "key": 3,
+          "start": "1000",
+          "end": "1055",
+          "title": "Beta Bridge"
+        },
+        {
+          "key": 4,
+          "start": "1100",
+          "end": "1155",
+          "title": "Alpha Bridge"
+        },
+        {
+          "key": 5,
+          "start": "1100",
+          "end": "1155",
+          "title": "Beta Bridge"
+        },
+        {
+          "key": 6,
+          "start": "1800",
+          "end": "1955",
+          "title": "Alpha Bridge"
+        },
+        {
+          "key": 7,
+          "start": "1800",
+          "end": "1955",
+          "title": "Beta Bridge"
+        }
+      ]
+    },
+    {
+      "date": "2016-10-02",
+      "times": [
+        {
+          "key": 8,
+          "start": "0900",
+          "end": "0955",
+          "title": "Alpha Bridge"
+        },
+        {
+          "key": 9,
+          "start": "0900",
+          "end": "0955",
+          "title": "Beta Bridge"
+        },
+        {
+          "key": 10,
+          "start": "1000",
+          "end": "1055",
+          "title": "Alpha Bridge"
+        },
+        {
+          "key": 11,
+          "start": "1000",
+          "end": "1055",
+          "title": "Beta Bridge"
+        },
+        {
+          "key": 12,
+          "start": "1100",
+          "end": "1155",
+          "title": "Alpha Bridge"
+        },
+        {
+          "key": 13,
+          "start": "1100",
+          "end": "1155",
+          "title": "Beta Bridge"
+        },
+        {
+          "key": 14,
+          "start": "1800",
+          "end": "1955",
+          "title": "Alpha Bridge"
+        },
+        {
+          "key": 15,
+          "start": "1800",
+          "end": "1955",
+          "title": "Beta Bridge"
+        }
+      ]
+    }
+  ]
+}
