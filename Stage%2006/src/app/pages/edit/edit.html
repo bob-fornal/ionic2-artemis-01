@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Artemis Crew Page
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="wrapper blue">
+    <ion-list no-lines>
+
+      <ion-item class="border-wrapper bottom">
+
+        <ion-grid>
+          <ion-row>
+            <ion-col width-25>Bridge</ion-col>
+            <ion-col width-75>{{ selectedBridge.bridge.title }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-25>Date</ion-col>
+            <ion-col width-75>{{ selectedBridge.date }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col width-25>Times</ion-col>
+            <ion-col width-75>{{ selectedBridge.start }} - {{ selectedBridge.end }}</ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-item>
+      <form (ngSubmit)="applyCrew()">
+        <ion-item>
+          <ion-input clearInput
+            type="text" name="captain"
+            placeholder="Captain"
+            [(ngModel)]="selectedBridge.bridge.crew.captain">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput
+            type="text" name="tactical"
+            placeholder="Tactical"
+            [(ngModel)]="selectedBridge.bridge.crew.tactical">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput
+            type="text" name="engineering"
+            placeholder="engineering"
+            [(ngModel)]="selectedBridge.bridge.crew.engineering">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput
+            type="text" name="helm"
+            placeholder="Helm"
+            [(ngModel)]="selectedBridge.bridge.crew.helm">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput
+            type="text" name="science"
+            placeholder="Science"
+            [(ngModel)]="selectedBridge.bridge.crew.science">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input clearInput
+            type="text" name="communications"
+            placeholder="Communications"
+            [(ngModel)]="selectedBridge.bridge.crew.communications">
+          </ion-input>
+        </ion-item>
+
+        <ion-item class="border-wrapper top">
+          <button ion-button block type="submit">Submit Crew Changes</button>
+        </ion-item>
+      </form>
+
+    </ion-list>
+  </div>
+</ion-content>
