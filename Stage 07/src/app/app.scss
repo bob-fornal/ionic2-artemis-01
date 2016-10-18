@@ -39,9 +39,22 @@
 .u-bridge {
   .title {
     font-size: 1em;
+    margin-bottom: 0.5em;
   }
-  .status {
+  .chairs {
     font-size: 0.8em;
+    text-align: center;
+
+    .item {
+      vertical-align: top;
+      display: inline-block;
+      text-align: center;
+
+      .caption {
+        display: block;
+        font-size: 0.75em;
+      }
+    }
   }
 
   &:not(.free) {

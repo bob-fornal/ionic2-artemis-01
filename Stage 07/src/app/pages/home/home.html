@@ -1,0 +1,140 @@
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-navbar>
+      <ion-title>
+        Pages
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+  <ion-content class="padding">
+    <div class="wrapper yellow">
+      <ion-list no-lines>
+        <button ion-item class="menu" (click)="popHome()">
+          <ion-icon name="ios-home"></ion-icon>
+          <span>Main Page</span>
+        </button>
+        <button ion-item class="menu" (click)="pushAbout()">
+          <ion-icon name="ios-planet"></ion-icon>
+          <span>About Page</span>
+        </button>
+      </ion-list>
+    </div>
+  </ion-content>
+
+</ion-menu>
+
+<ion-header>
+  <ion-navbar>
+    <button menuToggle left>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>
+      Artemis Scheduler App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content #content padding>
+  <div class="wrapper green">
+
+    <div class="note">Please select a timeframe.</div>
+
+    <div *ngFor="let block of schedule; let idx = index">
+
+      <div class="u-date-header"
+        (click)="toggleHeader(idx)">
+        <ion-icon *ngIf="open['position_' + idx]" name="md-arrow-dropup"></ion-icon>
+        <ion-icon *ngIf="!open['position_' + idx]" name="md-arrow-dropdown"></ion-icon>
+        <span>{{ block.date }}</span>
+      </div>
+
+      <template [ngIf]="open['position_' + idx]">
+        <div *ngFor="let time of block.times">
+
+          <div class="u-time-header">{{ time.start }} - {{ time.end }}</div>
+          <div *ngFor="let bridge of time.bridges">
+          <ion-list no-lines *ngIf="!bridge.crew.status.any_filled">
+            <ion-item class="u-bridge free"
+              (click)="clickCrew(time.key, bridge.key)">
+              <div class="title">{{ bridge.title }}:</div>
+              <div class="chairs">
+                <div class="item">
+                  <img src="/images/{{ bridge.crew.status.captain }}.png" />
+                  <span class="caption">Cpt</span>
+                </div>
+                <div class="item">
+                  <img src="/images/{{ bridge.crew.status.tactical }}.png" />
+                  <span class="caption">Tac</span>
+                </div>
+                <div class="item">
+                  <img src="/images/{{ bridge.crew.status.engineering }}.png" />
+                  <span class="caption">Eng</span>
+                </div>
+                <div class="item">
+                  <img src="/images/{{ bridge.crew.status.helm }}.png" />
+                  <span class="caption">Helm</span>
+                </div>
+                <div class="item">
+                  <img src="/images/{{ bridge.crew.status.science }}.png" />
+                  <span class="caption">Sci</span>
+                </div>
+                <div class="item">
+                  <img src="/images/{{ bridge.crew.status.communications }}.png" />
+                  <span class="caption">Comm</span>
+                </div>
+              </div>
+            </ion-item>
+          </ion-list>
+
+          <ion-list no-lines *ngIf="bridge.crew.status.any_filled">
+            <ion-item-sliding #item>
+
+              <ion-item class="u-bridge"
+                (click)="clickCrew(time.key, bridge.key)">
+                <div class="title">{{ bridge.title }}:</div>
+                <div class="chairs">
+                  <div class="item">
+                    <img src="/images/{{ bridge.crew.status.captain }}.png" />
+                    <span class="caption">Cpt</span>
+                  </div>
+                  <div class="item">
+                    <img src="/images/{{ bridge.crew.status.tactical }}.png" />
+                    <span class="caption">Tac</span>
+                  </div>
+                  <div class="item">
+                    <img src="/images/{{ bridge.crew.status.engineering }}.png" />
+                    <span class="caption">Eng</span>
+                  </div>
+                  <div class="item">
+                    <img src="/images/{{ bridge.crew.status.helm }}.png" />
+                    <span class="caption">Helm</span>
+                  </div>
+                  <div class="item">
+                    <img src="/images/{{ bridge.crew.status.science }}.png" />
+                    <span class="caption">Sci</span>
+                  </div>
+                  <div class="item">
+                    <img src="/images/{{ bridge.crew.status.communications }}.png" />
+                    <span class="caption">Comm</span>
+                  </div>
+                </div>
+              </ion-item>
+
+              <ion-item-options slide="left">
+                <button ion-button
+                  color="danger"
+                  (click)="clearCrew(item, block, time, bridge)">Clear</button>
+              </ion-item-options>
+
+            </ion-item-sliding>
+          </ion-list>
+        </div>
+
+        </div>
+      </template>
+    </div>
+  </div>
+</ion-content>
