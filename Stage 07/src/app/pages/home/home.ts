@@ -72,7 +72,6 @@ export class HomePage {
               this.dataService.checkSchedule(this.schedule).subscribe(
                 (schedule: Array<IScheduleType>) => {
                   this.schedule = schedule;
-                  settings.changedCrew = null;
                 }
               );
               break;
