@@ -5,6 +5,8 @@ import { MenuController, NavController } from 'ionic-angular';
 import { AboutPage } from '../about/about';
 import { EditPage } from '../edit/edit';
 
+import { ChairsComponent } from '../../components/chairs';
+
 import { settings } from '../../settings/settings.class';
 import { DataService } from '../../services/data-service';
 import { IScheduleType, IBridgeType } from '../../types/schedule.type';
@@ -83,8 +85,15 @@ export class HomePage {
     });
   }
 
-  clearCrew(item, block, time, bridge) {
-    (settings.IsDebug) && console.log("home - clearCrew", item, block, time, bridge);
+  clearCrew(item, time, bridge) {
+    let time_key: number = time.key;
+    let bridge_key: number = bridge.key;
+    this.dataService.deleteCrew(this.schedule, time_key, bridge_key).subscribe(
+      (schedule) => {
+        this.schedule = schedule;
+        console.log("clearCrew", schedule);
+      }
+    );
   }
 
   popHome() {

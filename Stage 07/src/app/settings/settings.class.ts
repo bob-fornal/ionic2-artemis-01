@@ -13,7 +13,15 @@ export class settings {
       key: number,
       title: string,
       crew: {
-        status: string;
+        status?: {
+          captain: string,
+          tactical: string,
+          engineering: string,
+          helm: string,
+          science: string,
+          communications: string,
+          any_filled: boolean          
+        };
         captain?: string;
         tactical?: string;
         engineering?: string;

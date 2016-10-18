@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 
 import { settings } from '../settings/settings.class';
-import { IScheduleType, IBridgeType, ICrewType } from '../types/schedule.type';
+import { IScheduleType, IBridgeType, ICrewType, IStatusType } from '../types/schedule.type';
 
 @Injectable()
 export class DataService {
@@ -87,7 +87,7 @@ export class DataService {
 
   private determineCrewStatus(crew: ICrewType) {
     return Observable.create((observer) => {
-      let status = {
+      let status: IStatusType = {
         captain: 'gray',
         tactical: 'gray',
         engineering: 'gray',
@@ -164,6 +164,40 @@ export class DataService {
       }
     }
     return result;
+  }
+
+  deleteCrew(schedule: Array<IScheduleType>, time_key: number, bridge_key: number) {
+    return Observable.create((observer) => {
+      for (let date of schedule) {
+        for (let time of date.times) {
+          if (time.key === time_key) {
+            for (let bridge of time.bridges) {
+              if (bridge.key === bridge_key) {
+                bridge.crew = {
+                  status: {
+                    captain: 'gray',
+                    tactical: 'gray',
+                    engineering: 'gray',
+                    helm: 'gray',
+                    science: 'gray',
+                    communications: 'gray',
+                    any_filled: false
+                  },
+                  captain: "",
+                  tactical: "",
+                  engineering: "",
+                  helm: "",
+                  science: "",
+                  communications: ""
+                };
+              }
+            }
+          }
+        }
+      }
+      observer.next(schedule);
+      observer.complete();
+    });
   }
 
 }

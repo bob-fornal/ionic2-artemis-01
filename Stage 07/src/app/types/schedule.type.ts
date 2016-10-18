@@ -18,11 +18,21 @@ export interface IBridgeType {
 }
 
 export interface ICrewType {
-  status: string;
+  status?: IStatusType;
   captain?: string;
   tactical?: string;
   engineering?: string;
   helm?: string;
   science?: string;
   communications?: string;
+}
+
+export interface IStatusType {
+  captain: string,
+  tactical: string,
+  engineering: string,
+  helm: string,
+  science: string,
+  communications: string,
+  any_filled: boolean
 }
