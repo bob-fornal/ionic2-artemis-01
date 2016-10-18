@@ -107,9 +107,20 @@ button[menuToggle] {
       color: white;
     }
 
-    .main-title {
-      color: white;
+    .about-title {
+      color: yellow;
       font-weight: bold;
+      margin-bottom: 1em;
+    }
+    .about-content {
+      color: white;
+      margin-bottom: 1em;
+      text-align: center;
+
+      .title {
+        color: yellow;
+        font-weight: bold;
+      }
     }
   }
 
