@@ -75,6 +75,11 @@ button[menuToggle] {
   padding-right: 0.5em;
 }
 
+.padding .scroll-content {
+  padding-left: 12px;
+  padding-top: 12px;
+}
+
 .padding .scroll-content,
 [padding] .scroll-content {
   background-color: black;
