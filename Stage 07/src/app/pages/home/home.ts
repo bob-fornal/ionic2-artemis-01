@@ -2,6 +2,10 @@
 import { Component } from '@angular/core';
 import { MenuController, NavController } from 'ionic-angular';
 
+import { BehaviorService } from '../../services/behavior-service';
+import { Subscription } from 'rxjs/subscription';
+import { IBehaviorType } from '../../types/behavior.type';
+
 import { AboutPage } from '../about/about';
 import { EditPage } from '../edit/edit';
 
@@ -21,11 +25,14 @@ import { IScheduleType, IBridgeType } from '../../types/schedule.type';
 })
 export class HomePage {
 
+  subscription: Subscription;
+
   schedule: Array<IScheduleType>;
   open: any = {};
   aboutOpen: boolean = false;
 
   constructor(
+    private behavior: BehaviorService,
     public dataService: DataService,
     public menuCtrl: MenuController,
     public navCtrl: NavController
@@ -40,25 +47,35 @@ export class HomePage {
     );
   }
 
-  ionViewWillEnter() {
-    let changed = settings.changedCrew;
-    if (settings.changedCrew !== null) {
-      for (let date of this.schedule) {
-        for (let time of date.times) {
-          if (time.key === changed.time_key) {
-            for (let bridge of time.bridges) {
-              if (bridge.key === changed.bridge_key) {
-                for (let key in changed.bridge.crew) {
-                  bridge.crew[key] = changed.bridge.crew[key];
-                }
-                this.dataService.checkSchedule(this.schedule).subscribe(
-                  (schedule: Array<IScheduleType>) => {
-                    this.schedule = schedule;
-                    settings.changedCrew = null;
-                  }
-                );
-                break;
+  ngOnInit() {
+    this.subscription = this.behavior.item.subscribe(
+      (item: IBehaviorType) => {
+        switch (item.type) {
+          case ("change crew"):
+            (settings.IsDebug) && console.log("home - change crew", item.data);
+            this._processCrewChange(item.data)
+            break;
+        }
+      }
+    );
+  }
+
+  _processCrewChange(changed) {
+    for (let date of this.schedule) {
+      for (let time of date.times) {
+        if (time.key === changed.time_key) {
+          for (let bridge of time.bridges) {
+            if (bridge.key === changed.bridge_key) {
+              for (let key in changed.bridge.crew) {
+                bridge.crew[key] = changed.bridge.crew[key];
               }
+              this.dataService.checkSchedule(this.schedule).subscribe(
+                (schedule: Array<IScheduleType>) => {
+                  this.schedule = schedule;
+                  settings.changedCrew = null;
+                }
+              );
+              break;
             }
           }
         }

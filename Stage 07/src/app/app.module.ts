@@ -8,27 +8,30 @@ import { ChairsComponent } from './components/chairs';
 import { AboutPage } from './pages/about/about';
 import { EditPage } from './pages/edit/edit';
 
+import { BehaviorService } from './services/behavior-service';
+
 import { DataService } from './services/data-service';
 
 @NgModule({
   declarations: [
-    ArtemisSchedulerApp,
-    HomePage,
-    ChairsComponent,
     AboutPage,
+    ArtemisSchedulerApp,
+    ChairsComponent,
     EditPage,
+    HomePage
   ],
   imports: [
     IonicModule.forRoot(ArtemisSchedulerApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    ArtemisSchedulerApp,
-    HomePage,
     AboutPage,
-    EditPage
+    ArtemisSchedulerApp,
+    EditPage,
+    HomePage
   ],
   providers: [
+    BehaviorService,
     DataService
   ]
 })

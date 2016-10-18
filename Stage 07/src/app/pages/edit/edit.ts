@@ -2,6 +2,8 @@
 import { Component, Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { BehaviorService } from '../../services/behavior-service';
+
 import { settings } from '../../settings/settings.class';
 import { DataService } from '../../services/data-service';
 import { IScheduleType, IBridgeType } from '../../types/schedule.type';
@@ -22,6 +24,7 @@ export class EditPage {
   };
 
   constructor(
+    public behavior: BehaviorService,
     public dataService: DataService,
     public navCtrl: NavController,
     public navParams: NavParams
@@ -35,8 +38,10 @@ export class EditPage {
         delete this.selectedBridge.bridge.crew[key];
       }
     }
-    settings.changedCrew = this.selectedBridge;
-    (settings.IsDebug) && console.log("edit applyCrew", this.selectedBridge);
+    this.behavior.changeBehavior({
+      type: "change crew",
+      data: this.selectedBridge
+    });
     this.navCtrl.pop();
   }
 
