@@ -155,9 +155,16 @@ button[menuToggle] {
   min-height: 4rem !important;
   min-width: 4rem !important;
 
-  img {
-    background-color: white !important;
-//    border: 3px solid blue;
-    border-radius: 10px;
+  &.yellow {
+    background-color: yellow;
+  }
+  &.red {
+    background-color: red;
+  }
+  &.blue {
+    background-color: blue;
+  }
+  &.green {
+    background-color: green;
   }
 }
