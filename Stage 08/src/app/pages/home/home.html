@@ -1,0 +1,107 @@
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-navbar>
+      <ion-title>
+        Pages
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content class="padding">
+    <trek-header [Color]="'yellow'">
+    </trek-header>
+    <trek-section [Color]="'yellow'">
+      <ion-list no-lines>
+        <button ion-item class="menu" (click)="popHome()">
+          <ion-icon name="ios-home"></ion-icon>
+          <span>Main Page</span>
+        </button>
+      </ion-list>
+    </trek-section>
+    <trek-section [Color]="'yellow'">
+      <ion-list no-lines>
+        <button ion-item class="menu" (click)="pushAbout()">
+          <ion-icon name="ios-planet"></ion-icon>
+          <span>About Page</span>
+        </button>
+      </ion-list>
+    </trek-section>
+    <trek-section [Color]="'yellow'" [Empty]="true">
+    </trek-section>
+  </ion-content>
+
+</ion-menu>
+
+<ion-header>
+  <ion-navbar>
+    <button menuToggle left>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>
+      Artemis Scheduler App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content #content padding>
+
+  <trek-header [Color]="'green'">
+    <div class="note">Please select a timeframe.</div>
+  </trek-header>
+
+  <trek-section
+    [Color]="'green'"
+    *ngFor="let block of schedule; let idx = index">
+
+    <div class="u-date-header"
+      (click)="toggleHeader(idx)">
+      <ion-icon *ngIf="open['position_' + idx]" name="md-arrow-dropup"></ion-icon>
+      <ion-icon *ngIf="!open['position_' + idx]" name="md-arrow-dropdown"></ion-icon>
+      <span>{{ block.date }}</span>
+    </div>
+
+    <template [ngIf]="open['position_' + idx]">
+      <div *ngFor="let time of block.times">
+
+        <div class="u-time-header">{{ time.start }} - {{ time.end }}</div>
+        <div *ngFor="let bridge of time.bridges">
+        <ion-list no-lines *ngIf="!bridge.crew.status.any_filled">
+          <ion-item class="u-bridge free"
+            (click)="clickCrew(time.key, bridge.key)">
+            <div class="title">{{ bridge.title }}:</div>
+            <artemis-chairs
+              [BridgeCrewStatus]="bridge.crew.status">
+            </artemis-chairs>
+          </ion-item>
+        </ion-list>
+
+        <ion-list no-lines *ngIf="bridge.crew.status.any_filled">
+          <ion-item-sliding #item>
+
+            <ion-item class="u-bridge"
+              (click)="clickCrew(time.key, bridge.key)">
+              <div class="title">{{ bridge.title }}:</div>
+              <artemis-chairs
+                [BridgeCrewStatus]="bridge.crew.status">
+              </artemis-chairs>
+            </ion-item>
+
+            <ion-item-options slide="left">
+              <button ion-button
+                color="danger"
+                (click)="clearCrew(item, time, bridge)">Clear</button>
+            </ion-item-options>
+
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+
+      </div>
+    </template>
+  </trek-section>
+
+  <trek-section [Color]="'green'" [Empty]="true">
+  </trek-section>
+
+</ion-content>

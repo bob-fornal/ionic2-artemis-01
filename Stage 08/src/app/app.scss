@@ -1,0 +1,199 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.u-date-header {
+  background-color: gray;
+  color: white;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-top: 0.5em;
+  padding: 0.25em 0.25em 0.25em 1em;
+
+  span {
+    float: right;
+    padding-right: 0.5em;
+    padding-top: 0.15em;
+  }
+}
+.u-time-header {
+  background-color: silver;
+  color: white;
+  font-size: 1.0em;
+  margin-top: 0.5em;
+  padding: 0.25em 0.75em;
+  text-align: right;
+}
+
+.u-bridge {
+  .title {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+  }
+  .chairs {
+    font-size: 0.8em;
+    text-align: center;
+
+    .item {
+      vertical-align: top;
+      display: inline-block;
+      text-align: center;
+
+      .caption {
+        display: block;
+        font-size: 0.75em;
+      }
+    }
+  }
+
+  &:not(.free) {
+    background-color: lightblue;
+  }
+  &.free {
+    background-color: lightgreen;
+  }
+}
+
+.list-md {
+  margin: 0 0 8px 0 !important;
+}
+button[menuToggle] {
+  background-color: transparent;
+  font-size:1.8em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.padding .scroll-content {
+  padding-left: 12px;
+  padding-top: 12px;
+}
+
+.padding .scroll-content,
+[padding] .scroll-content {
+  background-color: black;
+
+  .note {
+    color: white;
+  }
+
+  .about-title {
+    color: yellow;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  .about-content {
+    color: white;
+    margin-bottom: 1em;
+    text-align: center;
+
+    .title {
+      color: yellow;
+      font-weight: bold;
+    }
+  }
+
+  ion-list {
+    background-color: black;
+
+    ion-item:not(.u-bridge) {
+      background-color: black;
+      color: white;
+    }
+    [ion-item].menu {
+      background-color: black;
+      color: white;
+
+      ion-icon {
+        color: yellow;
+        margin-right: 0.5em;
+      }
+    }
+  }
+}
+
+.list-collapse {
+  margin: 0 !important;
+
+  ion-label {
+    margin: 0 !important;
+  }
+}
+
+.thumbnail {
+  margin: 8px 4px 8px 0 !important;
+  min-height: 4rem !important;
+  min-width: 4rem !important;
+
+  &.yellow {
+    background-color: yellow;
+  }
+  &.red {
+    background-color: red;
+  }
+  &.blue {
+    background-color: blue;
+  }
+  &.green {
+    background-color: green;
+  }
+}
+
+.trek-header-wrapper {
+  border-radius: 35px 0 0 0;
+  padding: 10px 0 8px 20px;
+  width: 100%;
+
+  &.blue {
+    border-left: 20px solid blue;
+    border-top: 5px solid blue;
+  }
+  &.green {
+    border-left: 20px solid green;
+    border-top: 5px solid green;
+  }
+  &.red {
+    border-left: 20px solid red;
+    border-top: 5px solid red;
+  }
+  &.yellow {
+    border-left: 20px solid yellow;
+    border-top: 5px solid yellow;
+  }
+}
+
+.trek-section-wrapper {
+  margin-top: 5px;
+  padding: 5px 0 5px 20px;
+  width: 100%;
+
+  &.empty {
+    height: 100%;
+  }
+
+  &.blue {
+    border-left: 20px solid blue;
+  }
+  &.green {
+    border-left: 20px solid green;
+  }
+  &.red {
+    border-left: 20px solid red;
+  }
+  &.yellow {
+    border-left: 20px solid yellow;
+  }
+}
